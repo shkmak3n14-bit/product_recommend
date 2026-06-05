@@ -64,19 +64,28 @@ project/
 
 📦 セットアップ方法
 1. 必要ライブラリのインストール
-　コード:pip install -r requirements_windows.txt
+```bash
+pip install -r requirements_windows.txt
+```
 　（※ requirements_windows.txt は必要に応じて作成）
 
 2. 環境変数の設定
 　.env に OpenAI API キーを設定します。
-　コード:OPENAI_API_KEY=your_api_key
+```bash
+OPENAI_API_KEY=your_api_key
+```
 
-3. アプリの起動
-　コード:streamlit run main.py
+4. アプリの起動
+```bash
+streamlit run main.py
+```
 
 📄 データ構造（products.csv）
 CSV は以下のような形式を想定しています：
 | id | name | price | category | maker | score | review_number | file_name | description | recommended_people |
+|----|------|--------|----------|--------|--------|----------------|-----------|--------------|---------------------|
+| 1  | サンプル商品 | 1980 | 家電 | メーカーA | 4.5 | 120 | sample.jpg | 〜説明〜 | 〜対象〜 |
+
 商品画像は images/products/ に配置します。
 
 🖼 表示例
@@ -97,4 +106,5 @@ CSV と画像があれば、どんな商品データでもレコメンド可能
 LLM を使った商品説明生成にも対応可能
 
 📚 ライセンス
-本プロジェクトは個人学習・実績公開を目的としています。
+本プロジェクトは個人学習およびポートフォリオ公開を目的としています。
+商用利用や再配布はご遠慮ください
