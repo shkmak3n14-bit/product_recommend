@@ -6,26 +6,25 @@ Streamlit を用いて構築しており、CSV の商品データと画像ファ
 
 🚀 主な機能
 ● 対話形式での商品レコメンド
-ユーザーがチャット欄に要望を入力すると、
-AI が最適な商品を検索し、画像付きで提案します。
+ユーザーがチャット欄に要望を入力すると、AI が最適な商品を検索し、画像付きで提案します。
 
 ● RAG（検索拡張生成）による高精度検索
-・BM25
-・OpenAI Embeddings
-・EnsembleRetriever（重み付き統合）
+　・BM25
+　・OpenAI Embeddings
+　・EnsembleRetriever（重み付き統合）
 これらを組み合わせることで、
 キーワード検索＋意味検索のハイブリッド検索 を実現しています。
 
 ● 商品情報の表示
-・商品名
-・価格
-・カテゴリ
-・メーカー
-・評価（レビュー数）
-・商品画像
-・商品説明
-・おすすめ対象ユーザー
-・商品ページへのリンク
+　・商品名
+　・価格
+　・カテゴリ
+　・メーカー
+　・評価（レビュー数）
+　・商品画像
+　・商品説明
+　・おすすめ対象ユーザー
+　・商品ページへのリンク
 
 🧩 アプリ構成
 コード
@@ -47,27 +46,27 @@ project/
 
 🛠 使用技術
 ● 言語・フレームワーク
-Python 3.x
-Streamlit
+　・Python 3.x
+　・Streamlit
 
 ● AI / RAG
-LangChain
-OpenAI Embeddings
-ChromaDB
-BM25Retriever
-EnsembleRetriever
+　・LangChain
+　・OpenAI Embeddings
+　・ChromaDB
+　・BM25Retriever
+　・EnsembleRetriever
 
 ● 日本語処理
-SudachiPy（形態素解析）
+　・SudachiPy（形態素解析）
 
 ● ログ管理
-TimedRotatingFileHandler による日次ログローテーション
+　・TimedRotatingFileHandler による日次ログローテーション
 
 📦 セットアップ方法
 1. 必要ライブラリのインストール
 コード
-pip install -r requirements.txt
-（※ requirements.txt は必要に応じて作成）
+pip install -r requirements_windows.txt
+（※ requirements_windows.txt は必要に応じて作成）
 
 2. 環境変数の設定
 .env に OpenAI API キーを設定します。
@@ -77,12 +76,10 @@ OPENAI_API_KEY=your_api_key
 3. アプリの起動
 コード
 streamlit run main.py
+
 📄 データ構造（products.csv）
 CSV は以下のような形式を想定しています：
-
-id	name	price	category	maker	score	review_number	file_name	description	recommended_people
-
-
+| id | name | price | category | maker | score | review_number | file_name | description | recommended_people |
 商品画像は images/products/ に配置します。
 
 🖼 表示例
