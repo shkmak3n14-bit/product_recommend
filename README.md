@@ -26,3 +26,81 @@ AI が最適な商品を検索し、画像付きで提案します。
 ・商品説明
 ・おすすめ対象ユーザー
 ・商品ページへのリンク
+
+🧩 アプリ構成
+コード
+project/
+├── main.py                # アプリのメイン処理
+├── components.py          # 画面表示（UI）専用の関数
+├── constants.py           # 固定値・設定の一元管理
+├── initialize.py          # 初期化処理（ログ・RAG・セッション）
+├── utils.py               # 形態素解析などの補助関数
+├── data/
+│   └── products.csv       # 商品データ（RAGのデータソース）
+├── images/
+│   ├── ai_icon.jpg
+│   ├── user_icon.jpg
+│   └── products/          # 商品画像（jpg）
+│       └── xxx.jpg
+└── logs/
+    └── application.log    # ログファイル
+
+🛠 使用技術
+● 言語・フレームワーク
+Python 3.x
+Streamlit
+
+● AI / RAG
+LangChain
+OpenAI Embeddings
+ChromaDB
+BM25Retriever
+EnsembleRetriever
+
+● 日本語処理
+SudachiPy（形態素解析）
+
+● ログ管理
+TimedRotatingFileHandler による日次ログローテーション
+
+📦 セットアップ方法
+1. 必要ライブラリのインストール
+コード
+pip install -r requirements.txt
+（※ requirements.txt は必要に応じて作成）
+
+2. 環境変数の設定
+.env に OpenAI API キーを設定します。
+
+コード
+OPENAI_API_KEY=your_api_key
+3. アプリの起動
+コード
+streamlit run main.py
+📄 データ構造（products.csv）
+CSV は以下のような形式を想定しています：
+
+id	name	price	category	maker	score	review_number	file_name	description	recommended_people
+
+
+商品画像は images/products/ に配置します。
+
+🖼 表示例
+商品名
+価格
+カテゴリ
+メーカー
+評価（レビュー数）
+商品画像
+商品説明
+おすすめ対象ユーザー
+商品ページリンク
+
+🧪 このアプリでできること
+CSV と画像があれば、どんな商品データでもレコメンド可能
+商品検索ツールとして利用可能
+社内向け FAQ / ナレッジ検索にも応用可能
+LLM を使った商品説明生成にも対応可能
+
+📚 ライセンス
+本プロジェクトは個人学習・実績公開を目的としています。
