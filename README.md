@@ -27,7 +27,7 @@ Streamlit を用いて構築しており、CSV の商品データと画像ファ
 　・商品ページへのリンク
 
 🧩 アプリ構成
-コード
+```bash
 project/
 ├── main.py                # アプリのメイン処理
 ├── components.py          # 画面表示（UI）専用の関数
@@ -43,6 +43,7 @@ project/
 │       └── xxx.jpg
 └── logs/
     └── application.log    # ログファイル
+```
 
 🛠 使用技術
 ● 言語・フレームワーク
