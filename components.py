@@ -6,7 +6,6 @@
 # ライブラリの読み込み
 ############################################################
 import logging
-from pathlib import Path
 import streamlit as st
 import constants as ct
 
@@ -14,31 +13,6 @@ import constants as ct
 ############################################################
 # 関数定義
 ############################################################
-
-def _resolve_avatar(avatar_path: str, fallback_avatar: str):
-    """
-    avatar画像パスが有効なら絶対パスを返し、無効ならフォールバック値を返す
-    """
-    if not avatar_path:
-        return fallback_avatar
-
-    candidate_path = Path(avatar_path)
-    if not candidate_path.is_absolute():
-        candidate_path = Path(__file__).resolve().parent / candidate_path
-
-    if candidate_path.exists() and candidate_path.is_file():
-        return str(candidate_path)
-
-    return fallback_avatar
-
-
-def _assistant_avatar():
-    return _resolve_avatar(ct.AI_ICON_FILE_PATH, "🤖")
-
-
-def _user_avatar():
-    return _resolve_avatar(ct.USER_ICON_FILE_PATH, "👤")
-
 
 def display_app_title():
     """
@@ -51,7 +25,7 @@ def display_initial_ai_message():
     """
     AIメッセージの初期表示
     """
-    with st.chat_message("assistant", avatar=_assistant_avatar()):
+    with st.chat_message("assistant", avatar=ct.AI_ICON_FILE_PATH):
         st.markdown("こちらは対話型の商品レコメンド生成AIアプリです。「こんな商品が欲しい」という情報・要望を画面下部のチャット欄から送信いただければ、おすすめの商品をレコメンドいたします。")
         st.markdown("**入力例**")
         st.info("""
@@ -67,10 +41,10 @@ def display_conversation_log():
     """
     for message in st.session_state.messages:
         if message["role"] == "user":
-            with st.chat_message("user", avatar=_user_avatar()):
+            with st.chat_message("user", avatar=ct.USER_ICON_FILE_PATH):
                 st.markdown(message["content"])
         else:
-            with st.chat_message("assistant", avatar=_assistant_avatar()):
+            with st.chat_message("assistant", avatar=ct.AI_ICON_FILE_PATH):
                 display_product(message["content"])
 
 

@@ -78,7 +78,7 @@ if chat_message:
     # ==========================================
     logger.info({"message": chat_message})
 
-    with st.chat_message("user", avatar=cn._user_avatar()):
+    with st.chat_message("user", avatar=ct.USER_ICON_FILE_PATH):
         st.markdown(chat_message)
 
     # ==========================================
@@ -96,7 +96,7 @@ if chat_message:
     # ==========================================
     # 3. LLMからの回答表示
     # ==========================================
-    with st.chat_message("assistant", avatar=cn._assistant_avatar()):
+    with st.chat_message("assistant", avatar=ct.AI_ICON_FILE_PATH):
         try:
             cn.display_product(result)
             
